@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/08/2014 10:07:57 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="conectarigualdad" name="model.domain.Persona" table="persona">
+    <id name="idPersona" type="int">
+      <column name="idpersona"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nombre" type="string">
+      <column length="45" name="nombre" not-null="true"/>
+    </property>
+    <property name="apellido" type="string">
+      <column length="45" name="apellido" not-null="true"/>
+    </property>
+    <property name="dni" type="int">
+      <column name="dni" not-null="true"/>
+    </property>
+    <property name="estado" type="boolean">
+      <column name="estado" not-null="true"/>
+    </property>
+    <!--<set fetch="select" inverse="true" lazy="true" name="destinos" table="DESTINO">
+      <key>
+        <column name="PERSONA_idpersona" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.dominio.Destino"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="profesors" table="PROFESOR">
+      <key>
+        <column name="PERSONA_idpersona" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.dominio.Profesor"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="alumnos" table="ALUMNO">
+      <key>
+        <column name="PERSONA_idpersona" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.dominio.Alumno"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="tutors" table="TUTOR">
+      <key>
+        <column name="PERSONA_idpersona" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.dominio.Tutor"/>
+    </set>-->
+  </class>
+  
+</hibernate-mapping>

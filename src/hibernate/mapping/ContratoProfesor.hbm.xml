@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class catalog="conectarigualdad" name="model.domain.ContratoProfesor" table="contratoprofesor">
+    <id name="idContrato" type="int">
+      <column name="idContrato"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="model.domain.Profesor" fetch="select" name="profesor">
+      <column name="idprofesor" not-null="true"/>
+    </many-to-one>
+    <property name="path" type="string">
+      <column length="150" name="direccionContrato" not-null="true"/>
+    </property>
+    
+  </class>
+  
+
+</hibernate-mapping>

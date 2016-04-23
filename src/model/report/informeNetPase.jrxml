@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a2dd2f52-f5eb-4377-9ef8-a85d89bb5d17">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="48"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     pase.`estado` AS pase_estado,
+     netbook.`idnetbook` AS netbook_idnetbook,
+     netbook.`idHardware` AS netbook_idHardware,
+     alumno.`curso` AS alumno_curso,
+     alumno.`division` AS alumno_division,
+     persona.`nombre` AS persona_nombre,
+     persona.`apellido` AS persona_apellido,
+     alumno.`estado` AS alumno_estado
+FROM
+     `netbook` netbook INNER JOIN `pase` pase ON netbook.`idnetbook` = pase.`NETBOOK_idnetbook`
+     INNER JOIN `alumno` alumno ON netbook.`idnetbook` = alumno.`NETBOOK_idnetbook`
+     INNER JOIN `persona` persona ON alumno.`PERSONA_idpersona` = persona.`idpersona`]]>
+	</queryString>
+	<field name="netbook_idnetbook" class="java.lang.String"/>
+	<field name="netbook_idHardware" class="java.lang.String"/>
+	<field name="pase_estado" class="java.lang.Boolean"/>
+	<field name="persona_nombre" class="java.lang.String"/>
+	<field name="persona_apellido" class="java.lang.String"/>
+	<field name="alumno_curso" class="java.lang.String"/>
+	<field name="alumno_division" class="java.lang.String"/>
+	<field name="alumno_estado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="219" y="5" width="364" height="33" forecolor="#000000" uuid="a05fb000-e571-4478-8e7a-df2c280a92c0"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Colegio Secundrio Nº 37]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="602" y="39" width="200" height="22" forecolor="#000000" uuid="8a058708-c22d-49c1-a53c-c30f3f5bf2a2"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[listado de Pases]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="802" height="1" uuid="a1d2a5a1-f901-48ec-984c-ace2104066ef"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="117" height="15" uuid="f8b24b4b-5645-4ef2-8149-d8f203b291c1"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Num. Serie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="117" y="19" width="90" height="15" uuid="e749d729-0271-495f-81f2-8552fca96269"/>
+				<text><![CDATA[Id Hardware]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="207" y="19" width="103" height="15" uuid="401c1fd4-fccd-4042-b092-7fcdbea393ab"/>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="310" y="19" width="261" height="15" uuid="972b75d8-46fa-4f03-8db1-66e55576bdce"/>
+				<text><![CDATA[Alumno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="571" y="19" width="111" height="15" uuid="c69febb9-00d4-44b0-b418-1a21959d64b3"/>
+				<text><![CDATA[Curso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="682" y="20" width="100" height="15" uuid="cb59d80e-f155-456e-8a93-22431a257f46"/>
+				<text><![CDATA[Estado Alumno]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="43" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="4b010c4b-6e76-48fc-b00e-b4fa48845e8b"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="117" height="15" uuid="37e9ee5a-d624-433a-aa23-82a88685d002"/>
+				<textFieldExpression><![CDATA[$F{netbook_idnetbook}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="117" y="0" width="90" height="15" uuid="2e29bd0b-ed7d-479b-9e19-653289b7ffac"/>
+				<textFieldExpression><![CDATA[$F{netbook_idHardware}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="207" y="1" width="103" height="15" uuid="4a97fdac-0814-427e-8827-e75a0df532e9"/>
+				<textFieldExpression><![CDATA[$F{pase_estado}==true?"Solicitado":"No cargado"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="310" y="0" width="124" height="43" uuid="8de51139-fee6-47fc-bc4c-646be0e056bb"/>
+				<textFieldExpression><![CDATA[$F{persona_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="434" y="0" width="137" height="43" uuid="9f2df3f8-9c29-4bd7-aa0a-e73fb025aa57"/>
+				<textFieldExpression><![CDATA[$F{persona_apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="571" y="0" width="52" height="15" uuid="b02b2a05-676c-479b-9414-4acd3d2ab3ab"/>
+				<textFieldExpression><![CDATA[$F{alumno_curso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="623" y="0" width="59" height="15" uuid="c0825d39-cda2-45da-825b-787d8a32092a"/>
+				<textFieldExpression><![CDATA[$F{alumno_division}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="682" y="1" width="100" height="42" uuid="9daffe25-7d7d-4e92-b18a-68d16a9848d8"/>
+				<textFieldExpression><![CDATA[$F{alumno_estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="d3c7908c-2777-4572-a9f1-fda8a4d0aab5"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="682" y="0" width="80" height="20" uuid="fdeff692-34cd-4c51-8d97-04797b71b9b4"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="762" y="0" width="40" height="20" uuid="2473425a-6842-4e40-8182-9be763cfb5ee"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="7c944534-e884-41c1-9baa-376e94e6928e"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

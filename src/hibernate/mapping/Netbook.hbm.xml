@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/08/2014 10:07:57 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="conectarigualdad" name="model.domain.Netbook" table="netbook">
+    <id name="idNetbook" type="string">
+      <column length="15" name="idnetbook"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="marca" type="string">
+      <column length="20" name="marca" not-null="true"/>
+    </property>
+    <property name="estado" type="boolean">
+      <column name="estado" not-null="true"/>
+    </property>
+    <property name="windowsKey" type="string">
+      <column length="25" name="windowsKey" not-null="true"/>
+    </property>
+    <property name="officeKey" type="string">
+      <column length="25" name="officeKey" not-null="true"/>
+    </property>
+    <property name="modelo" type="string">
+      <column length="20" name="modelo" not-null="true"/>
+    </property>
+    <property name="idHardware" type="string">
+      <column length="20" name="idHardware" not-null="true"/>
+    </property>
+    <property name="codigoActivador" type="string">
+      <column length="8" name="codigoActivador" not-null="true"/>
+    </property>
+    <!--<set fetch="select" inverse="true" lazy="true" name="pases" table="PASE">
+      <key>
+        <column length="15" name="NETBOOK_idnetbook" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.dominio.Pase"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="alumnos" table="ALUMNO">
+      <key>
+        <column length="15" name="NETBOOK_idnetbook" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.dominio.Alumno"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="profesors" table="PROFESOR">
+      <key>
+        <column length="15" name="NETBOOK_idnetbook" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.dominio.Profesor"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="serviciotecnicos" table="SERVICIOTECNICO">
+      <key>
+        <column length="15" name="NETBOOK_idnetbook" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.dominio.Serviciotecnico"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="seguimientos" table="SEGUIMIENTO">
+      <key>
+        <column length="15" name="NETBOOK_idnetbook" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.dominio.Seguimiento"/>
+    </set>-->
+  </class>
+</hibernate-mapping>

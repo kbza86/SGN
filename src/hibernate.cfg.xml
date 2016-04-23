@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/conectarigualdad?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">waltersaldia</property>
+    <property name="hibernate.connection.password">walter</property>
+    <mapping resource="hibernate/mapping/Pase.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Netbook.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Destino.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Alumno.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Serviciotecnico.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Establecimiento.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Tutor.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Persona.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Profesor.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Reasignacion.hbm.xml"/>
+    <mapping resource="hibernate/mapping/ContratoProfesor.hbm.xml"/>
+    <mapping resource="hibernate/mapping/ContratoAlumno.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

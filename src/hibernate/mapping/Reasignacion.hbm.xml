@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class catalog="conectarigualdad" name="model.domain.Reasignacion" table="reasignacion">
+    <id name="idReasignacion" type="short">
+      <column name="idReasignacion"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="estado" type="boolean">
+      <column name="estado" not-null="true"/>
+    </property>
+    <many-to-one class="model.domain.Netbook" fetch="select" name="netbook">
+      <column name="NETBOOK_idnetbook" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="model.domain.Persona" fetch="select" name="persona">
+      <column name="PERSONA_idpersona" not-null="true"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="09037840-2797-4b17-8d46-ec956d5b5584">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     netbook.`idnetbook` AS netbook_idnetbook,
+     netbook.`marca` AS netbook_marca,
+     netbook.`estado` AS netbook_estado,
+     netbook.`modelo` AS netbook_modelo,
+     netbook.`idHardware` AS netbook_idHardware
+FROM
+     `netbook` netbook]]>
+	</queryString>
+	<field name="netbook_idnetbook" class="java.lang.String"/>
+	<field name="netbook_idHardware" class="java.lang.String"/>
+	<field name="netbook_estado" class="java.lang.Boolean"/>
+	<field name="netbook_marca" class="java.lang.String"/>
+	<field name="netbook_modelo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="5" width="333" height="33" forecolor="#000000" uuid="01b65731-1038-4c65-bee7-78b1e9d7fb89"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Colegio Secundario N 37]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="353" y="38" width="200" height="22" forecolor="#000000" uuid="601fb9ab-c5fc-43f1-88ad-ccb4de5a7a53"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Listado de Netbook]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="24aa9624-9f92-488c-91f3-fb63ae7f5004"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="111" height="15" uuid="f79135c4-5fc8-4398-9bca-feb0c36fa69a"/>
+				<text><![CDATA[Numero Serie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="111" y="19" width="111" height="15" uuid="62279d7c-30dd-4091-850d-75e71f7c7075"/>
+				<text><![CDATA[Id Hardware]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="222" y="19" width="111" height="15" uuid="8754e428-05ac-46bd-a2bf-5037458e5fdd"/>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="333" y="19" width="111" height="15" uuid="82f4fa71-9c20-43ff-964c-65917ddbf916"/>
+				<text><![CDATA[Marca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="444" y="19" width="111" height="15" uuid="2551bdb9-640e-4320-88ad-292765180492"/>
+				<text><![CDATA[Modelo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="8ba9df4a-69d4-45c0-8453-7c34eb3d3d77"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="111" height="15" uuid="d8803451-982f-4d75-9e5a-fc0e35ff768c"/>
+				<textFieldExpression><![CDATA[$F{netbook_idnetbook}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="111" y="0" width="111" height="15" uuid="894ce81f-f07a-4f57-9703-517e1bf06e20"/>
+				<textFieldExpression><![CDATA[$F{netbook_idHardware}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="222" y="0" width="111" height="15" uuid="64278def-d439-4978-b7e4-1ed9f5435872"/>
+				<textFieldExpression><![CDATA[$F{netbook_estado}==true?"En el Colegio":"Verificar"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="333" y="0" width="111" height="15" uuid="560f6308-a09c-4e61-9fd7-59a42d9dc742"/>
+				<textFieldExpression><![CDATA[$F{netbook_marca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="444" y="0" width="111" height="15" uuid="bc34596c-61ad-43ad-916d-578123211b8f"/>
+				<textFieldExpression><![CDATA[$F{netbook_modelo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="f8ccabf6-f20b-4423-a5eb-4f1a4af1a15c"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="5f88fe91-80aa-4766-a44a-a318cf2167df"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="2d1ee8b0-4bc7-4bf2-835f-d1aeda88e304"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="8c429e10-2d4d-4f6e-94ba-b1240364798b"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

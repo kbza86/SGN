@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/08/2014 10:07:57 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="conectarigualdad" name="model.domain.ServicioTecnico" table="serviciotecnico">
+    <id name="idServicioTecnico" type="int">
+      <column name="idserviciotecnico"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="model.domain.Netbook" fetch="select" name="netbook">
+      <column length="15" name="NETBOOK_idnetbook" not-null="true"/>
+    </many-to-one>
+    <property name="diagnostico" type="string">
+      <column length="200" name="diagnostico" not-null="true"/>
+    </property>
+    <property name="fechaEntrega" type="date">
+      <column length="10" name="fechaEntrega" not-null="true"/>
+    </property>
+    <property name="fechaDevolucion" type="date">
+      <column length="10" name="fechaDevolucion"/>
+    </property>
+    <property name="estado" type="boolean">
+      <column name="estado" not-null="true"/>
+    </property>
+    <property name="idSolicitud" type="int">
+      <column name="idSolicitud"/>
+    </property>
+  </class>
+</hibernate-mapping>

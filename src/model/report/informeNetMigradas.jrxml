@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a094be55-084a-4fb8-b838-dd7b74b22500">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="82"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     netbook.`idHardware` AS netbook_idHardware,
+     netbook.`idnetbook` AS netbook_idnetbook,
+     destino.`estado` AS destino_estado,
+     persona.`nombre` AS persona_nombre,
+     persona.`apellido` AS persona_apellido,
+     establecimiento.`nombre` AS establecimiento_nombre
+FROM
+     `persona` persona INNER JOIN `destino` destino ON persona.`idpersona` = destino.`PERSONA_idpersona`
+     INNER JOIN `establecimiento` establecimiento ON destino.`ESTABLECIMIENTO_idEstablecimiento` = establecimiento.`idEstablecimiento`
+     INNER JOIN `alumno` alumno ON persona.`idpersona` = alumno.`PERSONA_idpersona`
+     INNER JOIN `profesor` profesor ON persona.`idpersona` = profesor.`PERSONA_idpersona`
+     INNER JOIN `netbook` netbook ON profesor.`NETBOOK_idnetbook` = netbook.`idnetbook`
+     AND netbook.`idnetbook` = alumno.`NETBOOK_idnetbook`]]>
+	</queryString>
+	<field name="netbook_idnetbook" class="java.lang.String"/>
+	<field name="netbook_idHardware" class="java.lang.String"/>
+	<field name="destino_estado" class="java.lang.Boolean"/>
+	<field name="persona_nombre" class="java.lang.String"/>
+	<field name="persona_apellido" class="java.lang.String"/>
+	<field name="establecimiento_nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="224" y="5" width="354" height="33" forecolor="#000000" uuid="4ba28091-01d6-4495-af16-83c39ec8ddcf"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Colegio Secundario Nº 37]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="606" y="39" width="196" height="22" forecolor="#000000" uuid="2934e17e-75b2-4173-b883-6130c9450e35"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Listado de Migraciones]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="802" height="1" uuid="51ede75c-8462-4db2-a1a3-124572f8ee45"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="136" height="15" uuid="d7e10133-2478-4b1a-8c46-54b6d15e88b5"/>
+				<text><![CDATA[Num Serie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="136" y="20" width="125" height="15" uuid="e9ebffbd-baa1-415c-9f57-f02c3608f422"/>
+				<text><![CDATA[Id Hardware]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="261" y="20" width="105" height="15" uuid="4ce8040d-5a3d-4104-94c0-3e7f889a7657"/>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="366" y="21" width="184" height="15" uuid="0ed2d34a-86f5-4388-b706-3c3be19ac07c"/>
+				<text><![CDATA[Titular]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="550" y="19" width="123" height="15" uuid="6e30f12d-2b09-4248-bdbf-1af599008029"/>
+				<text><![CDATA[Establecimiento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="e5ce6d1b-2aae-43ba-aa46-a27b7877e3f5"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="136" height="15" uuid="5c897732-d6ed-47bd-924c-941844951535"/>
+				<textFieldExpression><![CDATA[$F{netbook_idnetbook}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="136" y="1" width="125" height="15" uuid="b6708f4b-f111-4d76-8ee1-1a38fb012e3c"/>
+				<textFieldExpression><![CDATA[$F{netbook_idHardware}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="261" y="0" width="105" height="15" uuid="fdef43e3-63c5-4e48-974d-6f399a69ebe2"/>
+				<textFieldExpression><![CDATA[$F{destino_estado}==true?"Realizado":"Pendiente"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="366" y="2" width="92" height="42" uuid="6cf28ec8-e50f-4248-a29e-61249027afb0"/>
+				<textFieldExpression><![CDATA[$F{persona_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="458" y="2" width="92" height="42" uuid="5d729c90-a5ea-4809-9ba8-41693a94263d"/>
+				<textFieldExpression><![CDATA[$F{persona_apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="549" y="2" width="124" height="42" uuid="d7245b4b-e84b-4be4-9e0d-d37b298b7987"/>
+				<textFieldExpression><![CDATA[$F{establecimiento_nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="e56a4621-f415-4d37-b9bc-d05fd9cd6686"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="682" y="0" width="80" height="20" uuid="0de1a669-852a-43b9-96b9-376d346e2504"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="762" y="0" width="40" height="20" uuid="71ec02d1-43ff-447b-8a1f-0c2ea4a948ba"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="013db2d8-18a3-4208-8cc4-de350debda5b"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

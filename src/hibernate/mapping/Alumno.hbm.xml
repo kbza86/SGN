@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/08/2014 10:07:57 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="conectarigualdad" name="model.domain.Alumno" table="alumno">
+    <id name="idAlumno" type="int">
+      <column name="idalumno"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="model.domain.Tutor" fetch="select" name="tutor">
+      <column name="TUTOR_idtutor" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="model.domain.Netbook" fetch="select" name="netbook">
+      <column length="15" name="NETBOOK_idnetbook" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="model.domain.Persona" fetch="select" name="persona">
+      <column name="PERSONA_idpersona" not-null="true"/>
+    </many-to-one>
+    <property name="curso" type="string">
+        <column length="45" name="curso" not-null="true"/>
+    </property>
+    <property name="division" type="string">
+      <column length="45" name="division" not-null="true"/>
+    </property>
+    <property name="estado" type="string">
+      <column length="30" name="estado" not-null="true"/>
+    </property>
+    <property name="foto" type="binary">
+      <column name="foto"/>
+    </property>
+  </class>
+</hibernate-mapping>

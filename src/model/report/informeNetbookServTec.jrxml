@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="832" leftMargin="5" rightMargin="5" topMargin="15" bottomMargin="15" uuid="94df7285-fbe3-4178-99d7-4c720da837d9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString>
+		<![CDATA[SELECT
+     serviciotecnico.`diagnostico` AS serviciotecnico_diagnostico,
+     serviciotecnico.`fechaEntrega` AS serviciotecnico_fechaEntrega,
+     serviciotecnico.`fechaDevolucion` AS serviciotecnico_fechaDevolucion,
+     serviciotecnico.`estado` AS serviciotecnico_estado,
+     netbook.`idnetbook` AS netbook_idnetbook,
+     netbook.`idHardware` AS netbook_idHardware,
+     serviciotecnico.`idserviciotecnico` AS serviciotecnico_idserviciotecnico,
+     serviciotecnico.`idSolicitud` AS serviciotecnico_idSolicitud
+FROM
+     `netbook` netbook INNER JOIN `serviciotecnico` serviciotecnico ON netbook.`idnetbook` = serviciotecnico.`NETBOOK_idnetbook`]]>
+	</queryString>
+	<field name="serviciotecnico_diagnostico" class="java.lang.String"/>
+	<field name="serviciotecnico_fechaEntrega" class="java.sql.Date"/>
+	<field name="serviciotecnico_fechaDevolucion" class="java.sql.Date"/>
+	<field name="serviciotecnico_estado" class="java.lang.Boolean"/>
+	<field name="netbook_idnetbook" class="java.lang.String"/>
+	<field name="netbook_idHardware" class="java.lang.String"/>
+	<field name="serviciotecnico_idserviciotecnico" class="java.lang.Integer"/>
+	<field name="serviciotecnico_idSolicitud" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="63" y="34" width="332" height="22" forecolor="#000000" backcolor="#FFFFFF" uuid="0e5557e5-c67c-4a05-96b0-9545613cf58f"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Listado de Netbook en Servicio Técnico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="359" height="33" forecolor="#000000" uuid="7e7f720c-2c95-4720-9cd3-e7bbe819bc0c"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Colegio Secundario Nº 37]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="832" height="1" uuid="0fbaa69d-3b6c-4cbb-89ca-34f21c9a401b"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="132" height="15" uuid="fad14759-8d3e-4d02-b72c-2b6a5fe542a8"/>
+				<text><![CDATA[Numero Serie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="132" y="20" width="111" height="15" uuid="d150d3be-d0be-457a-b66d-0cc28129f77c"/>
+				<text><![CDATA[Id Hardware]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="243" y="19" width="116" height="16" uuid="3e4b2178-a4f3-439f-a7e1-9dc2eb64751d"/>
+				<text><![CDATA[Solicitud Serv. Tec]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="359" y="21" width="112" height="15" uuid="6550e63a-d838-428b-97ae-4ec7b26fa884"/>
+				<text><![CDATA[Estado Serv. Tec.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="476" y="20" width="132" height="15" uuid="f0c9e7f9-df03-4aa7-be3c-65cf737a4c91"/>
+				<text><![CDATA[Diagnostico Serv. Tec]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="608" y="20" width="115" height="15" uuid="d58f636e-79bc-4888-9c44-f684a2b47727"/>
+				<text><![CDATA[Fecha Entrega]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="723" y="20" width="99" height="15" uuid="1c5234ec-2ee5-4e36-ae5f-f7ff86060531"/>
+				<text><![CDATA[Fecha Dev.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="55" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="-13" y="15" width="845" height="1" uuid="b81a7bda-affa-4db9-85cb-5be748c79f47"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="132" height="15" uuid="a86ac6c6-6051-4216-bc20-79f6e4804a3c"/>
+				<textFieldExpression><![CDATA[$F{netbook_idnetbook}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="132" y="1" width="111" height="15" uuid="11434bbc-9d01-4f77-8b57-f33cc0a66680"/>
+				<textFieldExpression><![CDATA[$F{netbook_idHardware}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="243" y="1" width="116" height="15" uuid="2b493627-d65e-40c4-be21-7dc323cf9160"/>
+				<textFieldExpression><![CDATA[$F{serviciotecnico_idSolicitud}.equals( $F{serviciotecnico_idserviciotecnico} )?"******":$F{serviciotecnico_idSolicitud}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="359" y="0" width="112" height="15" uuid="cdd431ec-c274-4141-b7b0-ded230594444"/>
+				<textFieldExpression><![CDATA[$F{serviciotecnico_estado}==true?"Cargado":"No se cargo"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="476" y="0" width="132" height="55" uuid="c5612cd3-e6e9-48a0-a58c-90c410759e95"/>
+				<textFieldExpression><![CDATA[$F{serviciotecnico_diagnostico}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="608" y="0" width="115" height="15" uuid="b08e7e9d-9dab-4b6f-ae8e-9fcc0e08b1e3"/>
+				<textFieldExpression><![CDATA[$F{serviciotecnico_fechaEntrega}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="723" y="1" width="99" height="15" uuid="d7f719e6-56dc-41b6-b497-be9673b37b9b"/>
+				<textFieldExpression><![CDATA[$F{serviciotecnico_fechaDevolucion}.equals(null)?"*******":$F{serviciotecnico_fechaDevolucion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="d3db9458-a12a-4b33-a606-deec8df1a57e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="712" y="0" width="80" height="20" uuid="dddbb81c-0afb-41a4-b4e3-efa059653e09"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="792" y="0" width="40" height="20" uuid="18c38267-6ce6-4519-b497-0395496c7eef"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="27cddf4b-a2a1-4847-acad-6147b811d7b3"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

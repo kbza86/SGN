@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/08/2014 10:07:57 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="conectarigualdad" name="model.domain.Profesor" table="profesor">
+    <id name="idProfesor" type="int">
+      <column name="idProfesor"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="model.domain.Netbook" fetch="select" name="netbook">
+      <column length="15" name="NETBOOK_idnetbook" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="model.domain.Persona" fetch="select" name="persona">
+      <column name="PERSONA_idpersona" not-null="true"/>
+    </many-to-one>
+    <property name="estado" type="boolean">
+      <column name="estado" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

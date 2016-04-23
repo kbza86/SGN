@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/08/2014 10:07:57 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="conectarigualdad" name="model.domain.Establecimiento" table="establecimiento">
+    <id name="idEstablecimiento" type="short">
+      <column name="idEstablecimiento"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nombre" type="string">
+      <column length="100" name="nombre" not-null="true"/>
+    </property>
+    <property name="localidad" type="string">
+      <column length="60" name="localidad" not-null="true"/>
+    </property>
+    <!--<set fetch="select" inverse="true" lazy="true" name="destinos" table="DESTINO">
+      <key>
+        <column name="ESTABLECIMIENTO_idEstablecimiento" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.dominio.Destino"/>
+    </set>-->
+  </class>
+</hibernate-mapping>
